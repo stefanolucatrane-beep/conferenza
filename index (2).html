@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resoconto Conferenza: Bullismo e Cyber-Reati</title>
+    <!-- Font Pop e Super Leggibili da Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- TAVOLO DEI COLORI POP (Alta leggibilità) --- */
+        :root {
+            --bg-bright: #ffde4d; /* Giallo sole energetico (non triste!) */
+            --card-pink: #ff60b5; /* Rosa evidenziatore */
+            --card-cyan: #4deeea; /* Cyan brillante */
+            --card-green: #2ef8a0; /* Verde acido pop */
+            --card-purple: #b586f8; /* Viola instagram */
+            --card-white: #ffffff;
+            --text-dark: #000000; /* Nero assoluto per la massima leggibilità */
+            --border-thick: 4px solid #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-bright);
+            /* Pattern a quadratini stile quaderno di scuola pop */
+            background-image: 
+                radial-gradient(rgba(0, 0, 0, 0.15) 15%, transparent 15%),
+                radial-gradient(rgba(0, 0, 0, 0.15) 15%, transparent 15%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- CONTENITORE LOCANDINA --- */
+        .locandina {
+            background: var(--card-white);
+            max-width: 900px;
+            width: 100%;
+            border: var(--border-thick);
+            padding: 40px;
+            box-shadow: 12px 12px 0px #000000; /* Ombra netta stile fumetto */
+            border-radius: 20px;
+            position: relative;
+        }
+
+        /* --- HEADER IN APERTURA --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .top-badge-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        /* Sticker "Classe" e "Data" */
+        .sticker-badge {
+            background: var(--card-green);
+            padding: 8px 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            transform: rotate(-2deg);
+            font-size: 0.9rem;
+        }
+        
+        .sticker-badge.date {
+            background: var(--card-pink);
+            transform: rotate(3deg);
+        }
+
+        h1 {
+            font-family: 'Bungee', sans-serif; /* Font super impattante */
+            font-size: 3.5rem;
+            line-height: 1;
+            margin: 20px 0;
+            text-transform: uppercase;
+            -webkit-text-stroke: 1px #000;
+            color: #000;
+            text-shadow: 4px 4px 0px var(--card-cyan);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: var(--bg-bright);
+            display: inline-block;
+            padding: 5px 15px;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0px #000;
+            transform: rotate(-1deg);
+        }
+
+        /* --- GRIGLIA CONTENUTI --- */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* --- LE CARD (MASSIMO CONTRASTO: TESTO NERO SU SFONDO ACCESO) --- */
+        .card {
+            border: var(--border-thick);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 6px 6px 0px #000000;
+            transition: all 0.2s ease;
+            background-color: var(--card-white);
+        }
+
+        /* Animazione al passaggio del mouse */
+        .card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px #000000;
+        }
+
+        /* Assegnazione colori vivi alle card */
+        .card-cyan { background-color: var(--card-cyan); }
+        .card-pink { background-color: var(--card-pink); }
+        .card-purple { background-color: var(--card-purple); }
+        .card-green { background-color: var(--card-green); }
+
+        .card-full-width {
+            grid-column: span 2;
+        }
+
+        /* Numeri dei punti stile sticker */
+        .num-sticker {
+            font-family: 'Bungee', sans-serif;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            padding: 2px 10px;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* Testo dentro le card: GRANDE, NERO E BEN LEGGIBILE */
+        .card-text {
+            font-size: 1.2rem;
+            font-weight: 800; /* Rende il testo bello spesso */
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+
+        .card-text strong {
+            background: #ffffff;
+            padding: 0 5px;
+            border: 1px solid #000;
+        }
+
+        /* --- GRAFICHE / IMMAGINI STILE ADOLESCENTI (Polaroid & Emoji) --- */
+        .sticker-img-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .polaroid-frame {
+            background: white;
+            padding: 10px;
+            padding-bottom: 20px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            transform: rotate(4deg);
+            width: 130px;
+            flex-shrink: 0;
+        }
+
+        .polaroid-frame img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #000;
+        }
+
+        /* --- SEZIONE FEEDBACK / DI COSA SI PARLA DI NASCOSTO --- */
+        .feedback-box {
+            background: #ffffff;
+            border: var(--border-thick);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 6px 6px 0px #000000;
+            position: relative;
+        }
+
+        .feedback-box::before {
+            content: "🔥 LA NOSTRA OPINIONE";
+            font-family: 'Bungee', sans-serif;
+            background: var(--card-pink);
+            position: absolute;
+            top: -18px;
+            left: 20px;
+            padding: 4px 12px;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0px #000;
+            font-size: 0.9rem;
+        }
+
+        .feedback-line {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid var(--card-purple);
+        }
+
+        .feedback-line:last-child {
+            margin-bottom: 0;
+            border-left-color: var(--card-green);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .grid-cards { grid-template-columns: 1fr; }
+            .card-full-width { grid-column: span 1; }
+            .sticker-img-container { flex-direction: column-reverse; align-items: flex-start; }
+            .polaroid-frame { transform: rotate(0deg); margin-top: 15px; width: 100%; }
+            .polaroid-frame img { height: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="locandina">
+        
+        <header>
+            <div class="top-badge-container">
+                <div class="sticker-badge">CREW: 1DSU</div>
+                <div class="sticker-badge date">22 . 04 . 2026</div>
+            </div>
+            <h1>Stop Blabla.<br>Bullismo Online</h1>
+            <div class="subtitle">Con la Dott.ssa Laura Cameli</div>
+        </header>
+
+        <main>
+            <div class="grid-cards">
+                
+                <!-- PUNTO 17 (Cyan) -->
+                <div class="card card-cyan">
+                    <span class="num-sticker">TOPIC 17</span>
+                    <div class="card-text">
+                        Super interessante la discussione sull'<strong>eccesso di legittima difesa</strong>. Ci ha fatto riflettere parecchio su cosa sia giusto fare! ⚖️
+                    </div>
+                </div>
+
+                <!-- PUNTO 19 (Pink) -->
+                <div class="card card-pink">
+                    <span class="num-sticker">TOPIC 19</span>
+                    <div class="card-text">
+                        Spoiler brutto: dal bullismo <strong>non si scappa</strong>. Anche se spegni lo smartphone o ti disconnetti, la violenza ti insegue ovunque. 📱❌
+                    </div>
+                </div>
+
+                <!-- PUNTO 18 (Purple - Con Immagine stile Polaroid/Sticker) -->
+                <div class="card card-purple card-full-width">
+                    <span class="num-sticker">WARNING 18</span>
+                    <div class="sticker-img-container">
+                        <div class="card-text">
+                            Facciamo i seri: il bullismo distrugge le persone dentro. Nei casi più gravi, la disperazione è tale che <strong>può portare al suicidio</strong>. Non giriamoci dall'altra parte. 🛑
+                        </div>
+                        <!-- IMMAGINE POP: Sostituisci l'URL dentro src con la tua foto preferita -->
+                        <div class="polaroid-frame">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300" alt="Cyber-Web">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PUNTO 20 (Green - Con Immagine stile Polaroid/Sticker) -->
+                <div class="card card-green card-full-width">
+                    <span class="num-sticker">LEGAL CHECK 20</span>
+                    <div class="sticker-img-container">
+                        <div class="card-text">
+                            REGOLA D'ORO: quando c'è una rissa <strong>sono tutti colpevoli</strong>. Se stai lì a guardare, a fare i video con il telefono o a fare il tifo, sei complice al 100%. 👊💥
+                        </div>
+                        <!-- IMMAGINE POP: Sostituisci l'URL dentro src con un'altra foto -->
+                        <div class="polaroid-frame" style="transform: rotate(-3deg);">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=300" alt="Riflessione">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SEZIONE CRITICHE (Punti 21 e 22) -->
+            <div class="feedback-box">
+                <div class="feedback-line">
+                    <strong>Punto 21:</strong> Diciamolo chiaramente: alcuni interventi in aula sono stati fatti solo per <u>mettersi in mostra</u> (fare hype) e non per un reale interesse alla conferenza. 🙄
+                </div>
+                <div class="feedback-line">
+                    <strong>Punto 22:</strong> Per la prossima volta? Meno lezioni teoriche! Sarebbe molto meglio avere un confronto con le <strong>forze dell'ordine</strong> 🚓 che portino casi reali, esempi shock e storie vissute da ragazzi come noi.
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            ⚡ Resoconto ufficiale conferenza d'istituto - Classe 1DSU ⚡
+        </footer>
+
+    </div>
+
+</body>
+</html>
